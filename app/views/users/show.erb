@@ -1,0 +1,6 @@
+<p> Here are your logged incidents, <%= @user.username %>
+<% @user.incidents.each do |incidents| %>
+  <div>
+    <%= incidents.content %>
+  </div>
+<% end %>
