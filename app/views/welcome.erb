@@ -4,15 +4,15 @@
 <nav>
   <% if logged_in? %>
 
-    <a href="/tweets/new"> Log Incident </a>
+    <a href="/incidents/create_incident"> Log Incident </a>
     <a href="/logout"> Log Out </a>
     
 
     <p>Welcome, <%=current_user.username %></p>
 
   <% else %>
-    <a href="/signup">Sign Up</a>
-    <a href="/login"> Sign In </a>
+    <a href="/users/create_user">Sign Up</a>
+    <a href="/users/login"> Sign In </a>
   <%end %>
 
 </nav>
