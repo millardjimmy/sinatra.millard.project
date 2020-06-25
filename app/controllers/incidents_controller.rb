@@ -1,13 +1,13 @@
 class IncidentController < ApplicationController
     
     get '/incidents' do
-        @incidents = Pin.all 
+        @incidents = Incident.all 
         erb :"incidents/index"
     end 
     
     post '/incidents' do 
-        @pin = Pin.new(params)
-        @pin.save
+        @incident = Incident.new(params)
+        @incident.save
         redirect "/incidents"
     end 
     
