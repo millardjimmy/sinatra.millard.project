@@ -1,22 +1,38 @@
-<h2>Police Behavior Tracker</h2>
-<p>Please signin or signup below:</p>
+
+
+<html> 
+<body>
+    <label id="newUserGreeting"></label>
+</body>
+
+<script>
+    var myDate = new Date();
+    var hrs = myDate.getHours();
+    var greet;
+    if (hrs < 12)
+        greet = 'Good Morning';
+    else if (hrs >= 12 && hrs <= 17)
+        greet = 'Good Afternoon';
+    else if (hrs >= 17 && hrs <= 24)
+        greet = 'Good Evening';
+        document.getElementById('newUserGreeting').innerHTML =
+        '<b>' + greet + '</b>';
+</script> 
+
+<p>Please sign in or sign up below:</p>
 
 <nav>
-  <% if logged_in? %>
 
+    <a href="/signup">Sign Up</a>
+    <br><a href="/login"> Sign In </a>
+    <br><br>
     <a href="/incidents/create_incident"> Log Incident </a>
-    <a href="/logout"> Log Out </a>
+    <br><a href="/logout"> Log Out </a><br><br>
     
 
-    <p>Welcome, <%=current_user.username %></p>
-
-  <% else %>
-    <a href="/users/create_user">Sign Up</a>
-    <a href="/users/login"> Sign In </a>
-  <%end %>
 
 </nav>
 
 
-
+</html>
 
