@@ -1,4 +1,4 @@
-class Incident < ActiveRecord::Base
+class Incidents < ActiveRecord::Base
     belongs_to :user
 
     def self.permitted_params
@@ -10,7 +10,7 @@ class Incident < ActiveRecord::Base
           :agency_responsible, :officers_involved, 
           :race_of_officers_involved, :gender_of_officers_involved,
           :notes_related_to_officers_involved, :cause_of_death, 
-          :alleged_victim_crime, :crime_category, :aggregate_crime_category,
+          :alleged_victim_crime, :crime_category,
           :suspect_weapon_type, :solution, :incident_description, 
           :official_disposition_of_death, :criminal_charges,
           :news_url, :mental_illness, :unarmed, :line_of_duty, :note, 

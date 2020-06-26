@@ -2,7 +2,7 @@ class ApplicationController < Sinatra::Base
 
   configure do
     enable :sessions
-    set :session_secret, "secret" 
+    set :session_secret, ENV['SECRET']
     set :public_folder, 'public'
     set :views, 'app/views'
   end
@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/signup' do
-    if Helpers.is_logged_in?(session)
+    if is_logged_in?
       redirect to "/incidents"
     else
       erb :signup
@@ -30,7 +30,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/login' do
-    if Helpers.is_logged_in?(session)
+    if is_logged_in?
       redirect to "/"
     end
     erb :login
@@ -47,11 +47,33 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/logout' do
-    if Helpers.is_logged_in?(session)
+    if is_logged_in?
       session.clear
       redirect to "/login"
     else 
       redirect to "/"
     end
   end
+
+   helpers do
+    def is_logged_in?
+      !!session[:user_id]
+    end
+    
+    def redirect_if_not_logged_in
+      if !logged_in?
+        redirect to '/login'
+      end
+    end
+
+    def current_user
+      if @current_user !=nil
+        @current_user
+      else
+        @current_user= User.find_by(id: session[:user_id])
+      end
+    end
+  end
+
+
 end

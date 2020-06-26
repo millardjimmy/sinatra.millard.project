@@ -1,9 +1,12 @@
-<p> Here are your logged incidents, <%= @user.username %>
-<% @user.incidents.each do |incidents| %>
-  <div>
-    <%= incidents.content %>
-  </div>
-<% end %> 
+<h1>Logged Incidents</h1>
 
-<h1>Tweets for <%= @user.username %></h1>
+<strong>Incident Victim:</strong> <%= @victim.name %><br />
 
+
+<a href="/index/<%=  @incident.id  %>/edit">Edit Incident</a>
+
+<form action="/incidents/<%=  @incident.id  %>" method="POST">
+  <input type="hidden" value="DELETE"  name="_method">
+  <input type="submit" value="Delete">
+
+</form>

@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   #new-return form for creating users
   get '/users/new' do
-    if User.logged_in?(session) && user = User.current_user(session)
+    if User.is_logged_in?(session) && user = User.current_user(session)
       redirect to "/users/#{user.id}"
     else
       erb :'/users/new'
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   #validates whether user is logged in and takes user to user profile page
   get '/users/login' do
-    if User.logged_in?(session) && user = User.current_user(session)
+    if User.is_logged_in?(session) && user = User.current_user(session)
       redirect to "/users/#{user.id}"
     else
       erb :'/users/login'
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
   #allows user to view incidents
   get '/users/:id' do
-    if User.logged_in?(session) && @user = User.current_user(session)
+    if User.is_logged_in?(session) && @user = User.current_user(session)
       erb :'/users/show'
     else
       redirect to '/'
