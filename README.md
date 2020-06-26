@@ -8,7 +8,7 @@ And while the Death in Custody Reporting Act mandates this data be reported, its
 <br>
 This acts as a way to access information users have added to the database.
 
-###Project Requirements
+### Project Requirements
 <ol>
 <li>Build an MVC Sinatra application.</li>
 <li>Use ActiveRecord with Sinatra.</li>
