@@ -1,0 +1,58 @@
+#page used to add incidents to user accounts
+<h1>Please log your incident.</h1>
+
+<form method="POST" action="/incidents">
+
+<label>Victim Name</label>
+<input type="text" name="victim_name"><br>
+<label>Victim Age</label>
+<input type="integer" name="victim_age"><br>
+<label>Victim Gender</label>
+<input type="text" name="victim_gender"><br>
+<label>Victim Race</label>
+<input type="text" name="victim_race"><br>
+<label>Victim Image URL</label>
+<input type="text" name="victim_image_url"><br>
+<label>Incident Date</label>
+<input type="date" name="incident_date"><br>
+<label>Incident Street Address</label>
+<input type="text" name="incident_street_address"><br>
+<label>Incident City</label>
+<input type="text" name="incident_city"><br>
+<label>Incident State</label>
+<input type="text" name="incident_state"><br>
+<label>Incident ZIP</label>
+<input type="text" name="incident_zip"><br>
+<label>Incident County</label>
+<input type="text" name="incident_county"><br>
+<label>Agency Responsible</label>
+<input type="text" name="angency_responsible"><br>
+<label>Cause of Death</label>
+<input type="text" name="cause_of_death"><br>
+<label>Alleged Victim Crime</label>
+<input type="text" name="alleged_victim_crime"><br>
+<label>Crime Category</label>
+<input type="text" name="crime_category"><br>
+<label>Solution</label> #intended solution
+<input type="text" name="solution"><br>
+<label>Incident Description</label>
+<input type="text" name="incident_description"><br>
+<label>Official Disposition of Death</label>
+<input type="text" name="official_disposition_of_death"><br>
+<label>Criminal Charges</label>
+<input type="text" name="criminal_charges"><br>
+<label>News URL</label>
+<input type="text" name="news_url"><br>
+<label>Mental Illness</label>
+<input type="text" name="mental_illness"><br>
+<label>Unarmed</label>
+<input type="text" name="unarmed"><br>
+<label>Line of Duty</label> #this could be a boolean
+<input type="text" name="line_of_duty"><br>
+<label>Note</label>
+<input type="text" name="note"><br>
+<label>In Custody</label> #this could be a boolean
+<input type="text" name="in_custody"><br>
+
+<input type="submit" value="Submit">
+</form>

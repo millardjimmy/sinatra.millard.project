@@ -16,7 +16,6 @@ class CreateIncidents < ActiveRecord::Migration
       t.text :cause_of_death
       t.text :alleged_victim_crime
       t.text :crime_category
-      t.text :caveat
       t.text :solution
       t.text :incident_description
       t.text :official_disposition_of_death
@@ -24,10 +23,9 @@ class CreateIncidents < ActiveRecord::Migration
       t.text :news_url
       t.text :mental_illness
       t.text :unarmed
-      t.text :line_of_duty
+      t.text :line_of_duty #this could be a boolean
       t.text :note
       t.text :in_custody
-      t.text :arrest_related_death
     end
   end
 end

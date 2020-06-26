@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20200624201500) do
     t.text    "cause_of_death"
     t.text    "alleged_victim_crime"
     t.text    "crime_category"
-    t.text    "caveat"
     t.text    "solution"
     t.text    "incident_description"
     t.text    "official_disposition_of_death"
@@ -40,7 +39,6 @@ ActiveRecord::Schema.define(version: 20200624201500) do
     t.text    "line_of_duty"
     t.text    "note"
     t.text    "in_custody"
-    t.text    "arrest_related_death"
   end
 
   create_table "users", force: :cascade do |t|
