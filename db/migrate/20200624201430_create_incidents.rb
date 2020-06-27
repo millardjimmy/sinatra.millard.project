@@ -26,6 +26,7 @@ class CreateIncidents < ActiveRecord::Migration
       t.text :line_of_duty #this could be a boolean
       t.text :note
       t.text :in_custody
+      t.belongs_to :user
     end
   end
 end

@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20200624201500) do
     t.text    "line_of_duty"
     t.text    "note"
     t.text    "in_custody"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
