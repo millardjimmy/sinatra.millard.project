@@ -1,28 +1,23 @@
+require './config/environment'
+
 class IncidentController < ApplicationController
     
     #index-show list of all recorded incidents
     get '/incidents' do
-        if !is_logged_in?
-          redirect to "/login"
-        end
-          
+        redirect_if_not_logged_in
         @incidents = Incident.all
         erb :"/incidents/index"
-      end
+    end
     
       #create-creates new incident
-      post '/incidents' do 
-        if is_logged_in?
-            @incident = Incidents.new(incident_params)
-            if @incident.save 
-                redirect "/incident/#{@incident.id}"
-            else 
-                erb :'/incidents/new'
-            end 
-        else 
-            redirect '/login'
-        end 
-    end 
+      post '/incidents' do
+        redirect_if_not_logged_in
+        if !Incident.valid_params?(params) 
+            redirect to '/incidents/new'
+        end
+        current_user.incidents.create(params[:incident])
+        redirect to '/incidents'
+    end
     
       #new-return HTML form for creating a new incident
       get '/incidents/new' do
@@ -35,9 +30,9 @@ class IncidentController < ApplicationController
     
       #show-display a specific incident based on incident ID
       get '/incidents/:id' do
+        @incident = Incident.find(params[:id])
         if is_logged_in?
-          @incidents = Incidents.find(params[:id])
-          erb :"/incidents/index"
+          erb :'/incidents/show'
         else
           redirect to "/login"
         end
@@ -45,29 +40,39 @@ class IncidentController < ApplicationController
     
       #edit-return an html form for editing an incident
       get '/incidents/:id/edit' do
-        if is_logged_in? && @incidents = current_user.incidents.find_by(id: params[:id])
-          erb :"/incidents/edit"
+        redirect_if_not_logged_in
+        @incident = Incident.find(params[:id])
+        if @incident.user == current_user
+          erb :'incidents/edit'
         else 
-          redirect to "/login"
+          redirect to '/incidents'
         end
       end
+
+      
     
       #update-update specific incident based on ID
       patch '/incidents/:id' do
-        incidents = incidents.find_by(id: params[:id])
-        if params[:content].empty?
-          redirect to "/incidents/#{incidents.id}/edit"
+        @incident = Incident.find(params[:id])
+        user = @incident.user
+        if Incident.valid_params?(params) && user == current_user
+          @incident.update(params[:incident]) 
+          redirect to "/incidents/#{@incident.id}"
         else 
-          incidents.update(content: params[:content])
-          incidents.save
+          redirect to '/incidents'
         end 
       end
     
       #destroy-delete spcific incident based on ID
       delete '/incidents/:id' do
-        incidents = Incidents.find_by(id: params[:id])
-        incidents.delete if incidents.user == current_user
-        redirect to "/incidents"
+        @incident = Incident.find(params[:id])
+        user = @incident.user
+        if user == current_user
+            @incident.destroy
+            redirect to "/incidents"
+        else
+            redirect to "/incidents"
+        end
       end
 
       private 
