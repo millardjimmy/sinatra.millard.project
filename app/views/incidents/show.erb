@@ -1,0 +1,12 @@
+<h1>Show Page</h1>
+
+<strong>Incident Victim:</strong> <%= @incident.victim_name %><br />
+
+
+<a href="/incidents/<%=  @incident.id %>/edit">Edit Incident</a>
+
+<form action="/incidents/<%= @incident.id  %>" method="POST">
+<input type="hidden" value="DELETE"  name="_method">
+<input type="submit" value="Delete">
+
+</form>
