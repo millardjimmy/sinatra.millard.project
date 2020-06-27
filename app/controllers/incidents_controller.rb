@@ -76,7 +76,7 @@ class IncidentController < ApplicationController
         
           victim_name:                        params[:victim_name], 
           victim_age:                         params[:victim_age], 
-          victim_gender:                     params[:victim_gender], 
+          victim_gender:                      params[:victim_gender], 
           victim_race:                        params[:victim_race], 
           victim_image_url:                   params[:victim_image_url], 
           incident_date:                      params[:incident_date],

@@ -1,12 +1,12 @@
 <h1>Logged Incidents</h1>
 
-<strong>Incident Victim:</strong> <%= @victim.name %><br />
+<strong>Incident Victim:</strong> <%= @victim_name %><br />
 
 
-<a href="/index/<%=  @incident.id  %>/edit">Edit Incident</a>
+<a href="/index/<%=  :id  %>/edit">Edit Incident</a>
 
-<form action="/incidents/<%=  @incident.id  %>" method="POST">
-  <input type="hidden" value="DELETE"  name="_method">
-  <input type="submit" value="Delete">
+<form action="/index/<%=  :id  %>" method="POST">
+<input type="hidden" value="DELETE"  name="_method">
+<input type="submit" value="Delete">
 
 </form>

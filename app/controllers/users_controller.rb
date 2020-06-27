@@ -31,9 +31,9 @@ class UsersController < ApplicationController
     redirect to '/users/login'
   end
 
-  #allows user to view incidents
+  #allows user to view incidents NEEDS FIX
   get '/users/:id' do
-    if User.is_logged_in?(session) && @user = User.current_user(session)
+    if is_logged_in?(session) && @user = User.current_user(session)
       erb :'/users/show'
     else
       redirect to '/'
@@ -64,5 +64,6 @@ class UsersController < ApplicationController
       erb :'/users/login'
     end
   end
+
 
 end
