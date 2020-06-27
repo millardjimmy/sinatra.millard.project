@@ -1,6 +1,11 @@
-class Incidents < ActiveRecord::Base
+class Incident < ActiveRecord::Base
     belongs_to :user
 
+    def self.valid_params?(params)
+      params[:incident][:crime_category] != "" && params[:incident][:agency_responsible] != "" && params[:incident][:incident_date] != ""
+    end
+    
+    
     def self.permitted_params
         [ 
           :victim_name, :victim_age, :victim_gender, :victim_race, 
