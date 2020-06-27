@@ -1,0 +1,61 @@
+<h1>Please edit your incident.</h1>
+
+<form action="/incidents/<%= @incident.id %>" method="POST">
+<input type="hidden" name="_method" value="PATCH">
+
+
+
+<label>Victim Name</label>
+<input type="text" name="incident[victim_name]" value="<%=@incident.victim_name%>"><br>
+
+<label>Victim Age</label>
+<input type="integer" name="incident[victim_age]"><br>
+<label>Victim Gender</label>
+<input type="text" name="incident[victim_gender]"><br>
+<label>Victim Race</label>
+<input type="text" name="incident[victim_race]"><br>
+<label>Victim Image URL</label>
+<input type="text" name="incident[victim_image_url]"><br>
+<label>Incident Date</label>
+<input type="date" name="incident[incident_date]"><br>
+<label>Incident Street Address</label>
+<input type="text" name="incident[incident_street_address]"><br>
+<label>Incident City</label>
+<input type="text" name="incident[incident_city]"><br>
+<label>Incident State</label>
+<input type="text" name="incident[incident_state]"><br>
+<label>Incident ZIP</label>
+<input type="text" name="incident[incident_zip]"><br>
+<label>Incident County</label>
+<input type="text" name="incident[incident_county]"><br>
+<label>Agency Responsible</label>
+<input type="text" name="incident[agency_responsible]"><br>
+<label>Cause of Death</label>
+<input type="text" name="incident[cause_of_death]"><br>
+<label>Alleged Victim Crime</label>
+<input type="text" name="incident[alleged_victim_crime]"><br>
+<label>Crime Category</label>
+<input type="text" name="incident[crime_category]"><br>
+<label>Solution</label>
+<input type="text" name="incident[solution]"><br>
+<label>Incident Description</label>
+<input type="text" name="incident[incident_description]"><br>
+<label>Official Disposition of Death</label>
+<input type="text" name="incident[official_disposition_of_death]"><br>
+<label>Criminal Charges</label>
+<input type="text" name="incident[criminal_charges]"><br>
+<label>News URL</label>
+<input type="text" name="incident[news_url]"><br>
+<label>Mental Illness</label>
+<input type="text" name="incident[mental_illness]"><br>
+<label>Unarmed</label>
+<input type="text" name="incident[unarmed]"><br>
+<label>Line of Duty</label> 
+<input type="text" name="incident[line_of_duty]"><br>
+<label>Note</label>
+<input type="text" name="incident[note]"><br>
+<label>In Custody</label> 
+<input type="text" name="incident[in_custody]"><br>
+
+<input type="submit" value="Edit">
+</form>
