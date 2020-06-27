@@ -15,6 +15,7 @@ gem 'haml'
 gem 'roo'
 gem 'geocoder'
 gem 'paper_trail'
+gem 'dotenv'
 
 group :test do
   gem 'rspec'
