@@ -1,10 +1,19 @@
-<h2><%=current_user.username%></h2>
-    <p>Your logged incidents</p>
+
+<% if is_logged_in? %>
+
+<h2>Logged in as <%= current_user.username %></h2>
+    <a href="/incidents/new">Report new incident</a>
+<% end %>
+
+    <p>All logged incidents</p>
     <br>
     <% @incidents.each do |incident| %>
 
-    <div class="incidents">
+    <p><strong>Crime Category</strong> <%= incident.crime_category %> <br></p>
+    <p><a href='/incidents/<%= incident.id %>'>more info</a>
+    <p>----------</p>
 
-    </div>
+  
+ 
 
     <% end %>
