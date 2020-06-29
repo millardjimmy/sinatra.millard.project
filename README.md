@@ -58,7 +58,7 @@ Thie repository uses [SemVer](http://semver.org/) for versioning.
 
 ## Author
 
-* **Millard** - *Initial work* - [FelipeB](https://github.com/millardjimmy)
+* **Millard** - *Initial work* - [Github](https://github.com/millardjimmy)
 
 ## License
 
