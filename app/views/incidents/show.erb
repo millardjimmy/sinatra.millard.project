@@ -1,12 +1,101 @@
-<h1>Show Page</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.container {
+  height: 100px;
+  position: relative;
+  border: 0px solid blue;
+}
 
-<strong>Incident Victim:</strong> <%= @incident.victim_name %><br />
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 0px;
+  height: 600px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+</style>
+</head>
+<body>
+<center>
+<h2>Incident Details</h2>
 
 
-<a href="/incidents/<%=  @incident.id %>/edit">Edit Incident</a>
+
+<div class="column" style="background-color:white;">
+  <table>
+
+<strong>Victim:</strong> <br> <%= @incident.victim_name %><br>
+<strong>Age:</strong><br> <%= @incident.victim_age %><br>
+<strong>Gender:</strong><br> <%= @incident.victim_gender %><br>
+<strong>Race:</strong><br> <%= @incident.victim_race %><br>
+<strong>Image URL:</strong><br> <%= @incident.victim_image_url %><br>
+<strong>Incident Date:</strong><br><%= @incident.incident_date %><br>
+<strong>Incident Street Address:</strong><br> <%= @incident.incident_street_address %><br>
+<strong>Incident City:</strong><br> <%= @incident.incident_city %><br>
+<strong>Incident State:</strong><br> <%= @incident.incident_state %><br>
+<strong>Incident ZIP:</strong><br> <%= @incident.incident_zip %><br>
+<strong>Incident County:</strong><br> <%= @incident.incident_county %><br>
+<strong>Agency Responsible:</strong><br> <%= @incident.agency_responsible %><br>
+</table>
+</div>
+
+</center>
+<div class="column" style="background-color:white;">
+<center>
+<table>
+<strong>Cause of Death:</strong><br> <%= @incident.cause_of_death %><br>
+<strong>Alleged Crime:</strong><br> <%= @incident.alleged_victim_crime %><br>
+<strong>Crime Category:</strong><br> <%= @incident.crime_category %><br>
+<strong>Solution:</strong><br> <%= @incident.solution %><br>
+<strong>Incident Description:</strong><br> <%= @incident.incident_description %><br>
+<strong>Official Disposition of Death:</strong><br> <%= @incident.official_disposition_of_death %><br>
+<strong>Criminal Charges:</strong><br> <%= @incident.criminal_charges %><br>
+<strong>News URL:</strong><br> <%= @incident.news_url %><br>
+<strong>Mental Illness:</strong><br> <%= @incident.mental_illness %><br>
+<strong>Unarmed:</strong><br> <%= @incident.unarmed %><br>
+<strong>Line of Duty:</strong><br> <%= @incident.line_of_duty %><br>
+<strong>Note:</strong><br> <%= @incident.note %><br>
+<strong>In Custody:</strong><br> <%= @incident.in_custody %><br>
+<br><br>
+</table>
+</center>
+
+<center>
+<a href="/incidents/<%=  @incident.id %>/edit">Edit Incident:</a><br><br>
 
 <form action="/incidents/<%= @incident.id  %>" method="POST">
 <input type="hidden" value="DELETE"  name="_method">
 <input type="submit" value="Delete">
 
 </form>
+
+</div>
+</div>
+
+
+</body>
+</html>
