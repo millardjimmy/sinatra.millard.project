@@ -21,3 +21,45 @@ This acts as a way to access information users have added to the database.
 <li>Validate user input so bad data cannot be persisted to the database.</li>
 
 </ol>
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+Clone and run the following command inside this project's directory 
+
+    $ bundle
+
+### Development
+
+Run the following command to load database schema
+
+    $ bundle exec rake db:schema:load
+
+Start up local server
+
+    $ bundle exec shotgun or $ bundle exec rackup
+
+For interactive console
+
+    $ bundle exec rake console
+
+## Built With
+
+* [Ruby 2.6.1](https://www.ruby-lang.org/en/news/2019/01/30/ruby-2-6-1-released/)
+* [Sinatra](http://sinatrarb.com/) - The web framework used
+* [Bundler](https://bundler.io/) - Dependency Management
+
+## Versioning
+
+Thie repository uses [SemVer](http://semver.org/) for versioning.
+
+## Author
+
+* **Millard** - *Initial work* - [FelipeB](https://github.com/millardjimmy)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
