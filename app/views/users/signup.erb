@@ -23,24 +23,24 @@
         '<b>' + greet + '</b> -- Please sign up below';
 </script> 
 
+<table>
+<tbody>
 <form action="/signup" method="POST">
     
-    
-    <p style=text-align:left;>
-    <label for="username">Username</label>
-    <input type="text" name="user[username]" placeholder="username"></p>
 
-    <p style=text-align:left;>
-    <label for="email">Email</label>
-    <input type="text" name="user[email]" placeholder="email@email.com"></p>
+    <tr><td><label for="name">Username:</label></td>
+    <td><input type="text" name="user[username]" placeholder="username"></td></tr>
+    <tr><td><label for="password">Password:</label></td>
+    <td><input type="text" name="user[password]" placeholder="********"></td></tr>
+    <tr><td><label for="email">Email:</label></td>
+    <td><input type="text" name="user[email]" placeholder="email@email.com"></td></tr>
+    </tbody>
+    </table>  
+<input type="submit" value="Submit">
 
-    <p style=text-align:left;>
-    <label for="password">Password</label>
-    <input type="password" name="user[password]" placeholder="password"></p>
 
-    <input type="submit" value="submit">
-    
 </form>
+    
 
 
 </html>
