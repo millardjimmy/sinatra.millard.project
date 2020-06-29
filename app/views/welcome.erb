@@ -1,6 +1,6 @@
 
 
-<html> 
+<html><nav>
 <body>
     <label id="newUserGreeting"></label>
 </body>
@@ -18,26 +18,32 @@
         document.getElementById('newUserGreeting').innerHTML =
         '<b>' + greet + '</b>';
 </script> 
-
-<p>Please sign in or sign up below:</p>
-
-<nav>
-
-    <% if is_logged_in? %>
-    <a href="/incidents/new"> New Incident </a><br>
+<br>
+<br>
+    <% if is_logged_in? %><center>
+    <%= current_user.username %>,
+    law enforcement agencies across the country have failed to provide us with even basic information about the lives they have taken. 
+    <br>
+    <br>
+    And while the Death in Custody Reporting Act mandates this data be reported, its unclear whether police departments will actually comply with this mandate and, even if they do decide to report this information, it could be several years before the data is fully collected, compiled and made public. 
+    <br>
+    <br>
+    This acts as a way to access information users have added to the database.
+    <hr><center>
+    <br>
+    <a href="/incidents/new"> Report a new incident </a><br>
     
-    <a href="/incidents"> Logged Incidents</a>
+    <a href="/incidents"> View all recorded incidents</a>
 
 
     <% else %>
+    <p>Please sign in or sign up below:</p>
     <a href="/signup">Sign Up</a>
     <br><a href="/login"> Sign In </a>
     <br><br>
     <% end %>
    
     
-
-
 </nav>
 
 
