@@ -1,8 +1,18 @@
 <h1>Login</h1>
+
+
+
+
+
 <form action="/login" method="POST">
+<table>
+<tbody>
+    <tr><td><label for="name">Name:</label></td><td><input type="text" name="user[username]"></td></tr>
+    <tr><td><label for="password">Password:</label></td><td><input type="text" name="user[password]"></td></tr>
+</tbody>
+</table>  
+<input type="submit" value="Submit" id="submit">
 
-  <p>Name: <input type="text" name="user[username]"></p>
-  <p>Password: <input type="text" name="user[password]"></p>
 
-  <input type="submit" value="Submit" id="submit">
 </form>
+
