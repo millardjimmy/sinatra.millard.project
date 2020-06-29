@@ -1,57 +1,270 @@
-<h1>Please log your incident.</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
 
-<form method="POST" action="/incidents">
+.container {
+  height: 100px;
+  position: relative;
+  border: 0px solid blue;
+}
 
-<label>Victim Name</label>
-<input type="text" name="incident[victim_name]"><br>
-<label>Victim Age</label>
-<input type="integer" name="incident[victim_age]"><br>
-<label>Victim Gender</label>
-<input type="text" name="incident[victim_gender]"><br>
-<label>Victim Race</label>
-<input type="text" name="incident[victim_race]"><br>
-<label>Victim Image URL</label>
-<input type="text" name="incident[victim_image_url]"><br>
-<label>Incident Date</label>
-<input type="date" name="incident[incident_date]"><br>
-<label>Incident Street Address</label>
-<input type="text" name="incident[incident_street_address]"><br>
-<label>Incident City</label>
-<input type="text" name="incident[incident_city]"><br>
-<label>Incident State</label>
-<input type="text" name="incident[incident_state]"><br>
-<label>Incident ZIP</label>
-<input type="text" name="incident[incident_zip]"><br>
-<label>Incident County</label>
-<input type="text" name="incident[incident_county]"><br>
-<label>Agency Responsible</label>
-<input type="text" name="incident[agency_responsible]"><br>
-<label>Cause of Death</label>
-<input type="text" name="incident[cause_of_death]"><br>
-<label>Alleged Victim Crime</label>
-<input type="text" name="incident[alleged_victim_crime]"><br>
-<label>Crime Category</label>
-<input type="text" name="incident[crime_category]"><br>
-<label>Solution</label>
-<input type="text" name="incident[solution]"><br>
-<label>Incident Description</label>
-<input type="text" name="incident[incident_description]"><br>
-<label>Official Disposition of Death</label>
-<input type="text" name="incident[official_disposition_of_death]"><br>
-<label>Criminal Charges</label>
-<input type="text" name="incident[criminal_charges]"><br>
-<label>News URL</label>
-<input type="text" name="incident[news_url]"><br>
-<label>Mental Illness</label>
-<input type="text" name="incident[mental_illness]"><br>
-<label>Unarmed</label>
-<input type="text" name="incident[unarmed]"><br>
-<label>Line of Duty</label> 
-<input type="text" name="incident[line_of_duty]"><br>
-<label>Note</label>
-<input type="text" name="incident[note]"><br>
-<label>In Custody</label> 
-<input type="text" name="incident[in_custody]"><br>
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 
-<input type="submit" value="Submit">
-</form>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 625px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+
+</style>
+</head>
+<body>
+
+<center><h2>Please log your incident below:</h2></center>
+
+<div class="row">
+
+  <div class="column" style="background-color:white;">
+  <form method="POST" action="/incidents">
+  <center>
+  <table>
+  <tbody>
+
+    <tr><td><label>Victim Name</label>
+        <tr><td><input type="text" name="incident[victim_name"] placeholder="required">
+    <tr><td><label>Victim Age</label>
+        <tr><td><input type="integer" name="incident[victim_age]">
+    <tr><td><label>Victim Gender</label>
+        <tr><td><input type="text" name="incident[victim_gender]" list="gender_options">
+            <datalist id="gender_options">    
+                <option value="Male"></option>
+                <option value="Female"></option>
+                <option value="Other"></option>
+            </datalist>
+        
+    <tr><td><label>Victim Race</label>
+        <tr><td><input type="text" name="incident[victim_race]" list="race_options">
+            <datalist id="race_options">
+                <option value="Asian"></option>
+                <option value="Black"></option>
+                <option value="Pacific Islander"></option>
+                <option value="White"></option>
+                <option value="Native American"></option>
+                <option value="Unknown Race"></option>
+            </datalist>
+
+    <tr><td><label>Victim Image URL</label>
+        <tr><td><input type="text" name="incident[victim_image_url]">
+    <tr><td><label>Incident Date</label>
+        <tr><td><input type="date" name="incident[incident_date]">
+    <tr><td><label>Incident Street Address</label>
+        <tr><td><input type="text" name="incident[incident_street_address]">
+    <tr><td><label>Incident City</label>
+        <tr><td><input type="text" name="incident[incident_city]">
+    <tr><td><label>Incident State</label>
+        <tr><td><input type="text" name="incident[incident_state]" list="state_options">
+            <datalist id="state_options">
+                <option value="Alabama"></option>
+                <option value="Alaska"></option>
+                <option value="Arizona"></option>
+                <option value="Arkansas"></option>
+                <option value="California"></option>
+                <option value="Colorado"></option>
+                <option value="Connecticut"></option>
+                <option value="Delaware"></option>
+                <option value="Florida"></option>
+                <option value="Georgia"></option>
+                <option value="Hawaii"></option>
+                <option value="Idaho"></option>
+                <option value="Illinois"></option>
+                <option value="Indiana"></option>
+                <option value="Iowa"></option>
+                <option value="Kansas"></option>
+                <option value="Kentucky"></option>
+                <option value="Louisiana"></option>
+                <option value="Maine"></option>
+                <option value="Maryland"></option>
+                <option value="Massachusetts"></option>
+                <option value="Michigan"></option>
+                <option value="Minnesota"></option>
+                <option value="mississippi"></option>
+                <option value="Missouri"></option>
+                <option value="Montana"></option>
+                <option value="Nebraska"></option>
+                <option value="Nevada"></option>
+                <option value="New Hampshire"></option>
+                <option value="New Jersey"></option>
+                <option value="New Mexico"></option>
+                <option value="New York"></option>
+                <option value="North Carolina"></option>
+                <option value="North Dakota"></option>
+                <option value="Ohio"></option>
+                <option value="Oklahoma"></option>
+                <option value="Oregon"></option>
+                <option value="Pennsylvania"></option>
+                <option value="Rhode Island"></option>
+                <option value="South Carolina"></option>
+                <option value="South Dakota"></option>
+                <option value="Tennessee"></option>
+                <option value="Texas"></option>
+                <option value="Utah"></option>
+                <option value="Vermont"></option>
+                <option value="Virginia"></option>
+                <option value="Washington"></option>
+                <option value="West Virginia"></option>
+                <option value="Wisconsin"></option>
+                <option value="Wyoming"></option>
+            </datalist>
+
+    <tr><td><label>Incident ZIP</label>
+        <tr><td><input type="text" name="incident[incident_zip]">
+    <tr><td><label>Incident County</label>
+        <tr><td><input type="text" name="incident[incident_county]">
+    <tr><td><label>Agency Responsible</label>
+        <tr><td><input type="text" name="incident[agency_responsible]">
+
+
+    </tbody>
+    </table>
+   
+
+
+  </div>
+
+
+  <div class="column" style="background-color:white;">
+  <form method="POST" action="/incidents">
+  <center>
+  <table>
+  <tbody>
+  <tr><td><label>Cause of Death</label>
+  <tr><td><input type="text" name="incident[cause_of_death]" list="cod_options">
+      <datalist id="cod_options">
+          <option value="Asphyxiation"></option>
+          <option value="Beaten"></option>
+          <option value="Gunshot"></option>
+          <option value="Taser"></option>
+          <option value="Beanbag"></option>
+          <option value="Vehicle"></option>
+          <option value="Death in Custody"></option>
+          <option value="Medical Emergency"></option>
+          <option value="Physical Restraint"></option>
+          <option value="Pepper Spray"></option>
+          <option value="Other"></option>
+      </datalist>
+<tr><td><label>Alleged Victim Crime</label>
+    <tr><td><input type="text" name="incident[alleged_victim_crime]">
+<tr><td><label>Crime Category</label>
+    <tr><td><input type="text" name="incident[crime_category]" list="category_options" placeholder="required">
+        <datalist id="category_options">
+            <option value="Violent Crime (Non Lethal); Armed with Gun"></option>
+            <option value="Violent Crime (Non Lethal); No Gun"></option>
+            <option value="Violent Crime (Potentially Lethal); Armed with Gun"></option>
+            <option value="Violent Crime (Potentially Lethal); No Gun"></option>
+            <option value="No Crime"></option>
+            <option value="Property Crime; Armed with Gun"></option>
+            <option value="Property Crime; No Gun"></option>
+            <option value="Traffic Violation; Armed with Gun"></option>
+            <option value="Traffic Violation; No Gun"></option>
+            <option value="Murder; Armed with Gun"></option>
+            <option value="Murder; No Gun"></option>
+            <option value="Other"></option>
+            <option value="Unknown/Unspecified"></option>
+            <option value="Drugs"></option>
+            <option value="Broken Windows Offense"></option>
+            <option value="Weapons Possession Offense"></option>
+        </datalist>
+
+<tr><td><label>Incident Description</label>
+    <tr><td><input type="text" name="incident[incident_description]">
+<tr><td><label>Official Disposition of Death</label>
+    <tr><td><input type="text" name="incident[official_disposition_of_death]" list="odod_options">
+        <datalist id="odod_options">
+            <option value="Unreported"></option>
+            <option value="Unknown"></option>
+            <option value="Justified"></option>
+            <option value="Charged"></option>
+            <option value="Pending Investigation"></option>
+            <option value="Other"></option>
+        </datalist>
+
+<tr><td><label>Criminal Charges</label>
+    <tr><td><input type="text" name="incident[criminal_charges]">
+<tr><td><label>News URL</label>
+    <tr><td><input type="text" name="incident[news_url]">
+<tr><td><label>Mental Illness</label>
+    <tr><td><input type="text" name="incident[mental_illness]" list="mental_bool">
+        <datalist id="mental_bool">
+            <option value="Yes"></option>
+            <option value="No"></option>
+            <option value="Unknown"></option>
+        </datalist>
+
+<tr><td><label>Unarmed</label>
+    <tr><td><input type="text" name="incident[unarmed]" list="unarmed_bool">
+        <datalist id="unarmed_bool">
+            <option value="Unarmed"></option>
+            <option value="Allegedly Armed"></option>
+            <option value="Unclear"></option>
+            <option value="Vehicle"></option>
+        </datalist>
+
+<tr><td><label>Line of Duty</label> 
+    <tr><td><input type="text" name="incident[line_of_duty]" list="lod_bool">
+        <datalist id="lod_bool">
+            <option value="Yes"></option>
+            <option value="No"></option>
+            <option value="Unknown"></option>
+        </datalist>
+
+<tr><td><label>Note</label></tr></td>
+   <tr><td> <input type="text" name="incident[note]"></tr></td>
+<tr><td><label>In Custody?</label> </tr></td>
+   <tr><td> <input type="text" name="incident[in_custody]" list="custody_bool"></tr></td>
+        <datalist id="custody_bool">
+            <option value="Yes"></option>
+            <option value="No"></option>
+            <option value="Unknown"></option>
+        </datalist>
+
+</tbody>
+</table>
+
+
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="center">
+  <input type="submit" style="height:95px;width:600px;font-size:60px" value="Submit"></tr></td>
+  </div>
+</div>
+</body>
+</html>
+
