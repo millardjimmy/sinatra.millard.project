@@ -13,7 +13,7 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: darkblue;
+    background-color: white;
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
@@ -21,9 +21,9 @@
 
   .wrapper {
     background: #fff;
-    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    -moz-box-shadow: 0 0 0px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 00px rgba(0,0,0,.3);
+    box-shadow: 0 0 00px rgba(0,0,0,.3);
     margin: 16px auto;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
@@ -56,7 +56,7 @@
   }
 
   .content {
-    float: left;
+    float: center;
     width: 60%; /* 480px / 800px */
   }
 
