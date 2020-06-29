@@ -55,7 +55,7 @@ class IncidentController < ApplicationController
       patch '/incidents/:id' do
         @incident = Incident.find(params[:id])
         user = @incident.user
-        if Incident.valid_params?(params) && user == current_user
+        if  user == current_user #Incident.valid_params?(params) &&
           @incident.update(params[:incident]) 
           redirect to "/incidents/#{@incident.id}"
         else 
