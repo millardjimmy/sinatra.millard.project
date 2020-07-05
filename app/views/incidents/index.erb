@@ -3,13 +3,14 @@
 
 <center><h4>Signed in as <b><%= current_user.username.upcase %></b> and viewing all logged incidents</h4></center>
     <hr>
+    <center> 
     <h2><a href="/incidents/new">Report new incident</a></h2>
     
     
 <% end %>
-
+<center>
   
-    <% @incidents.each do |incident| %>
+    <% @incidents.reverse.each do |incident| %>
 
         <strong>Victim Name:</strong> <%= incident.victim_name %> <BR>
         <strong>Incident Date:</strong> <%= incident.incident_date %> <BR>
