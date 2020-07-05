@@ -15,7 +15,9 @@
   </head></center>
   <body>
     <div class="wrapper" style="text-align:"center">
-      <center><h1>Police Behavior Tracker</h1></center>
+      <center><h1>Police Behavior Tracker</h1>
+      <small> <a href="/logout"> Log Out </a> | <a href="/">Home </a></small><br><br>
+      </center>
         <%= yield %>
 
       <footer class="branding"><center>
@@ -28,5 +30,8 @@
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
       <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
     <![endif]-->
+
+    
+
   </body>
 </html>
