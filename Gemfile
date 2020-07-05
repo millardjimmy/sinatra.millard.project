@@ -16,6 +16,10 @@ gem 'roo'
 gem 'geocoder'
 gem 'paper_trail'
 gem 'dotenv'
+gem 'sinatra-flash'
+gem 'fabrication'
+gem 'faker'
+gem 'csv'
 
 group :test do
   gem 'rspec'
@@ -25,4 +29,5 @@ group :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'pry-byebug'
+  
 end
