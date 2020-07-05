@@ -5,6 +5,17 @@ class ApplicationController < Sinatra::Base
     set :session_secret, ENV['SESSION_SECRET']
     set :public_folder, 'public'
     set :views, 'app/views'
+    set :show_exceptions, false
+    register Sinatra::Flash
+  end
+
+  error ActiveRecord::RecordNotFound do
+    redirect to '/'
+  end
+
+  not_found do
+    status 404
+    erb :error
   end
 
   get '/' do
