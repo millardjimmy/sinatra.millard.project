@@ -12,22 +12,53 @@
   }
 
   /* --- Welcome Page Styles --- */
+  header {
+    float: center;
+    width: 100%;
+  }
+
   body {
-    background-color: white;
+    background-image: url("/images/cop.png");
+    background-size: 10%;
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
   }
+  
+  .logout-button {
+    float: right;
+  }
+
+  .welcome {
+    text-align: center;
+  }
+
+  .column-left {
+  float: left;
+  width: 50%;
+  }
+
+  .column-right {
+  float: right;
+  width: 50%;
+  }
+
+  .row:after {
+  content: "";
+  display: table;
+  clear: both;
+  }
 
   .wrapper {
     background: #fff;
-    -moz-box-shadow: 0 0 0px rgba(0,0,0,.3);
-    -webkit-box-shadow: 0 0 00px rgba(0,0,0,.3);
-    box-shadow: 0 0 00px rgba(0,0,0,.3);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
     margin: 16px auto;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
+   
   }
 
   h1 {
@@ -51,17 +82,22 @@
     margin-bottom: 18px;
   }
 
+  .logo-image {
+    float: center;
+    width: 100%;
+  }
+
   .main {
     overflow: hidden;
   }
 
   .content {
-    float: center;
+    float: left;
     width: 60%; /* 480px / 800px */
   }
 
   .sidebar {
-    background: #eee;
+    background-color:rgb(3, 252, 236); opacity:0.6;
     border: 1px solid #ccc;
     float: right;
     padding: 2.08333333333%; /* 5px / 240px */
