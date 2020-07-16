@@ -2,7 +2,9 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
+
 .container {
   height: 100px;
   position: relative;
@@ -85,13 +87,14 @@
 </center>
 
 <center>
-<a href="/incidents/<%=  @incident.id %>/edit">Edit Incident:</a><br><br>
 
+
+<a href="/incidents/<%=  @incident.id %>/edit">Edit Incident:</a><br><br>
 <form action="/incidents/<%= @incident.id  %>" method="POST">
 <input type="hidden" value="DELETE"  name="_method">
 <input type="submit" value="Delete">
-
 </form>
+
 
 </div>
 </div>
