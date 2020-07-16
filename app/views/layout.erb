@@ -22,16 +22,37 @@
 
       <footer class="branding"><center>
       <small> <a href="/logout"> Log Out </a> | &copy; 2020 <strong>Police Behavior Tracker</strong> | <a href="/">Home </a></small>
-      </footer>
-    </div>
+      
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <!--[if lt IE 7]>
-      <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
-      <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
-    <![endif]-->
+<script language="JavaScript">
+var clockID = 0;
+function UpdateClock() {
+   if(clockID) {
+      clearTimeout(clockID);
+      clockID  = 0;
+   }
+   var tDate = new Date();
 
-    
+   document.theClock.theTime.value = "" 
+                                   + tDate.getHours() + ":" 
+                                   + tDate.getMinutes() + ":" 
+                                   + tDate.getSeconds();
+   clockID = setTimeout("UpdateClock()", 1000);
+}
+function StartClock() {
+   clockID = setTimeout("UpdateClock()", 500);
+}
+function KillClock() {
+   if(clockID) {
+      clearTimeout(clockID);
+      clockID  = 0;
+   }
+}
+</script>
+<!--</head>-->
+<body onload="StartClock()" onunload="KillClock()">
+<form name="theClock">
+   <input type=text name="theTime" size=8 style="text-align: center">
+</form>
 
-  </body>
 </html>
