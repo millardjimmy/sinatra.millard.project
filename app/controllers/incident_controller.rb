@@ -1,4 +1,5 @@
 require './config/environment'
+require 'pry'
 
 class IncidentController < ApplicationController
     
@@ -12,70 +13,49 @@ class IncidentController < ApplicationController
       #create-creates new incident
       post '/incidents' do
         redirect_if_not_logged_in
-        if !Incident.valid_params?(params) 
-            redirect to '/incidents/new'
-        end
         current_user.incidents.create(params[:incident])
         redirect to '/incidents'
     end
     
       #new-return HTML form for creating a new incident
       get '/incidents/new' do
-        if is_logged_in?
-          erb :"/incidents/new"
-        else 
-          redirect to "/login"
-        end 
+        redirect_if_not_logged_in
+        erb :'incidents/new'
       end
     
       #show-display a specific incident based on incident ID
       get '/incidents/:id' do
+        redirect_if_not_logged_in
         @incident = Incident.find(params[:id])
-        if is_logged_in?
-          erb :'/incidents/show'
-        else
-          redirect to "/login"
-        end
+        erb :'incidents/show'
       end
     
       #edit-return an html form for editing an incident
       get '/incidents/:id/edit' do
         redirect_if_not_logged_in
         @incident = Incident.find(params[:id])
-        if @incident.user == current_user
-          erb :'incidents/edit'
-        else 
-          redirect to '/incidents'
-        end
+        authorize_to_edit(@incident)
+        erb :'incidents/edit'
       end
-
-      
     
       #update-update specific incident based on ID
       patch '/incidents/:id' do
         @incident = Incident.find(params[:id])
-        user = @incident.user
-        if  user == current_user #Incident.valid_params?(params) &&
-          @incident.update(params[:incident]) 
-          redirect to "/incidents/#{@incident.id}"
-        else 
-          redirect to '/incidents'
-        end 
+        authorize_to_edit(@incident)
+        @incident.update(params[:incident])
+        redirect to "/incidents"
       end
     
       #destroy-delete spcific incident based on ID
       delete '/incidents/:id' do
         @incident = Incident.find(params[:id])
-        user = @incident.user
-        if user == current_user
-            @incident.destroy
-            redirect to "/incidents"
-        else
-            redirect to "/incidents"
-        end
+        authorize_to_edit(@incident)
+        @incident.destroy
+        redirect to "/incidents"
       end
 
       private 
+      
       def incident_params
         {
         
