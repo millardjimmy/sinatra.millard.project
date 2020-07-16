@@ -5,8 +5,8 @@ class ApplicationController < Sinatra::Base
     set :session_secret, ENV['SESSION_SECRET']
     set :public_folder, 'public'
     set :views, 'app/views'
-    set :show_exceptions, false
-    register Sinatra::Flash
+    set :show_exceptions, true
+    
   end
 
   error ActiveRecord::RecordNotFound do
@@ -27,9 +27,10 @@ class ApplicationController < Sinatra::Base
       !!session[:user_id]
     end
     
-    def redirect_if_not_logged_in
-      if !is_logged_in?
-        redirect to '/login'
+    #this can be private
+    def authorize_to_edit(incident)
+      if !incident || incident.user != current_user
+       redirect to '/incidents'
       end
     end
 
@@ -39,5 +40,18 @@ class ApplicationController < Sinatra::Base
 
   end
 
+private
+
+def redirect_if_not_logged_in
+  if !is_logged_in?
+    redirect to '/login'
+  end
+end
+
+
+
 
 end
+
+
+
